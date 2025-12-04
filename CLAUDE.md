@@ -183,10 +183,27 @@ refactor: 重構 Webview HTML 生成邏輯
 - `feat/*`: 新功能開發
 - `fix/*`: Bug 修復
 
+## 建置與打包
+
+使用 **esbuild** 打包所有依賴成單一檔案：
+
+```bash
+npm run compile      # 開發編譯（tsc）
+npm run package      # 生產打包（esbuild bundle）
+npm run vscode:prepublish  # 發布前自動打包
+```
+
+### 依賴管理
+
+- **Runtime 依賴**：`markdown-it` - Markdown 渲染
+- **打包方式**：esbuild bundle 到 `out/extension.js`
+- **排除**：`vscode` 模組（由 VS Code 提供）
+
 ## 注意事項
 
-1. **不要引入額外依賴** - 使用 Node.js 內建 `http/https` 模組
+1. **HTTP 請求** - 使用 Node.js 內建 `http/https` 模組
 2. **保持 Webview 輕量** - 不使用外部 CSS/JS 框架
 3. **API Key 安全** - 不要在日誌中輸出 API Key
 4. **記憶體管理** - Webview Panel 關閉時正確 dispose
 5. **國際化** - UI 文字使用繁體中文，保持一致性
+6. **發布前必須打包** - 確保 `npm run package` 成功後再發布
