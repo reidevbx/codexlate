@@ -2,7 +2,7 @@
   "name": "codexlate",
   "displayName": "CodeXlate - 程式碼白話直譯器",
   "description": "將程式碼逐段直譯為非工程師能看懂的中文句子",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "reidevbx",
   "license": "MIT",
   "repository": {
@@ -53,15 +53,28 @@
           "codexlate.language": {
             "type": "string",
             "default": "繁體中文",
-            "enum": ["繁體中文", "简体中文", "English", "日本語"],
+            "enum": [
+              "繁體中文",
+              "简体中文",
+              "English",
+              "日本語"
+            ],
             "description": "翻譯目標語言",
             "order": 0
           },
           "codexlate.provider": {
             "type": "string",
             "default": "openai",
-            "enum": ["openai", "anthropic", "gemini"],
-            "enumDescriptions": ["OpenAI", "Anthropic Claude", "Google Gemini"],
+            "enum": [
+              "openai",
+              "anthropic",
+              "gemini"
+            ],
+            "enumDescriptions": [
+              "OpenAI",
+              "Anthropic Claude",
+              "Google Gemini"
+            ],
             "description": "選擇 API 提供商",
             "order": 1
           }
@@ -131,6 +144,7 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
+    "@types/markdown-it": "^14.1.2",
     "@types/node": "^20.10.0",
     "@types/vscode": "^1.85.0",
     "@typescript-eslint/eslint-plugin": "^6.13.0",
@@ -138,5 +152,7 @@
     "eslint": "^8.54.0",
     "typescript": "^5.3.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "markdown-it": "^14.1.0"
+  }
 }

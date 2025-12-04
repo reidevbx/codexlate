@@ -130,50 +130,36 @@ function buildSystemPrompt(language: string): string {
 | onMounted | 當元件掛載時 |
 
 ## 輸出格式
-- 用縮排表達巢狀結構
-- 用【】標記主要功能區塊，方便閱讀
-- 字串常數、API 路徑保留原文
-- 每個元件/函式獨立一個區塊
-- 變數名、函式名用「」包起來
+使用 Markdown 格式輸出：
+- 用 ## 標記主要功能區塊
+- 用反引號 \`變數名\` 包住變數名、函式名、API 路徑
+- 用縮排的 - 符號做列表
+- 字串用 "" 包住
 
 ## 範例
 
-### 輸入
-\`\`\`javascript
+輸入：
 const [count, setCount] = useState(0);
 const [isLoading, setIsLoading] = useState(false);
+useEffect(() => { fetchUserData(); }, [userId]);
+const handleClick = () => { if (count < 10) { setCount(count + 1); } else { alert("已達上限"); } };
 
-useEffect(() => {
-  fetchUserData();
-}, [userId]);
-
-const handleClick = () => {
-  if (count < 10) {
-    setCount(count + 1);
-  } else {
-    alert("已達上限");
-  }
-};
-\`\`\`
-
-### 輸出
-\`\`\`
-【狀態定義】
+輸出：
+## 狀態定義
 定義狀態變數：
-  - 「計數器」（初始為 0）
-  - 「是否載入中」（初始為 false）
+- \`計數器\`（初始為 0）
+- \`是否載入中\`（初始為 false）
 
-【副作用】
-當「userId」變動時：
-  執行「取得使用者資料」
+## 副作用
+當 \`userId\` 變動時：
+- 執行 \`取得使用者資料\`
 
-【事件處理】
-定義「處理點擊」函式：
-  如果 「計數器」 < 10：
-    設定「計數器」= 「計數器」+ 1
-  否則：
-    顯示提示 "已達上限"
-\`\`\``;
+## 事件處理
+定義 \`處理點擊\` 函式：
+- 如果 \`計數器\` < 10：
+  - 設定 \`計數器\` = \`計數器\` + 1
+- 否則：
+  - 顯示提示 "已達上限"`;
 }
 
 function buildUserPrompt(code: string, languageId: string, language: string): string {

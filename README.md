@@ -4,7 +4,7 @@
 
 > **直譯 ≠ 摘要**：輸出跟著程式碼結構走，不是總結功能。
 
-![demo](images/demo.gif)
+![demo](images/demo-1.png)
 
 ## 功能特色
 
