@@ -1,0 +1,14 @@
+.vscode/**
+.claude/**
+.env
+.git/**
+.gitignore
+src/**
+node_modules/**
+*.ts
+!out/**/*.d.ts
+tsconfig.json
+prd.md
+prompt-guide.md
+CLAUDE.md
+**/*.map

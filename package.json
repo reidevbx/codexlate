@@ -1,0 +1,142 @@
+{
+  "name": "codexlate",
+  "displayName": "CodeXlate - 程式碼白話直譯器",
+  "description": "將程式碼逐段直譯為非工程師能看懂的中文句子",
+  "version": "0.1.0",
+  "publisher": "reidevbx",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reihuang/codexlate"
+  },
+  "homepage": "https://github.com/reihuang/codexlate#readme",
+  "bugs": {
+    "url": "https://github.com/reihuang/codexlate/issues"
+  },
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Education"
+  ],
+  "keywords": [
+    "translate",
+    "code",
+    "chinese",
+    "explanation",
+    "ai"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codexlate.translate",
+        "title": "CodeXlate: 翻譯程式碼"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "codexlate.translate",
+        "key": "ctrl+k t",
+        "mac": "cmd+k t",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": [
+      {
+        "title": "一般",
+        "order": 0,
+        "properties": {
+          "codexlate.language": {
+            "type": "string",
+            "default": "繁體中文",
+            "enum": ["繁體中文", "简体中文", "English", "日本語"],
+            "description": "翻譯目標語言",
+            "order": 0
+          },
+          "codexlate.provider": {
+            "type": "string",
+            "default": "openai",
+            "enum": ["openai", "anthropic", "gemini"],
+            "enumDescriptions": ["OpenAI", "Anthropic Claude", "Google Gemini"],
+            "description": "選擇 API 提供商",
+            "order": 1
+          }
+        }
+      },
+      {
+        "title": "OpenAI",
+        "order": 1,
+        "properties": {
+          "codexlate.openaiApiKey": {
+            "type": "string",
+            "default": "",
+            "description": "API Key",
+            "order": 0
+          },
+          "codexlate.openaiModel": {
+            "type": "string",
+            "default": "gpt-4o",
+            "description": "模型",
+            "order": 1
+          }
+        }
+      },
+      {
+        "title": "Anthropic",
+        "order": 2,
+        "properties": {
+          "codexlate.anthropicApiKey": {
+            "type": "string",
+            "default": "",
+            "description": "API Key",
+            "order": 0
+          },
+          "codexlate.anthropicModel": {
+            "type": "string",
+            "default": "claude-sonnet-4-20250514",
+            "description": "模型",
+            "order": 1
+          }
+        }
+      },
+      {
+        "title": "Gemini",
+        "order": 3,
+        "properties": {
+          "codexlate.geminiApiKey": {
+            "type": "string",
+            "default": "",
+            "description": "API Key",
+            "order": 0
+          },
+          "codexlate.geminiModel": {
+            "type": "string",
+            "default": "gemini-2.0-flash",
+            "description": "模型",
+            "order": 1
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {}
+}
