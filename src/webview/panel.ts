@@ -92,7 +92,6 @@ export class TranslationPanel {
       font-size: 1em;
       font-weight: 400;
       color: var(--vscode-descriptionForeground);
-      margin-bottom: 12px;
       padding-bottom: 8px;
       border-bottom: 1px solid var(--vscode-widget-border);
       display: flex;
@@ -130,12 +129,14 @@ export class TranslationPanel {
       padding: 0;
     }
     .translation-content code {
-      background-color: var(--vscode-textCodeBlock-background);
-      color: var(--vscode-textPreformat-foreground);
-      padding: 3px 6px;
-      border-radius: 4px;
+      background-color: rgba(127, 127, 127, 0.2);
+      color: var(--vscode-editor-foreground);
+      padding: .2em .4em;
+      margin: 0;
+      font-size: 85%;
+      white-space: break-spaces;
+      border-radius: 6px;
       font-family: var(--vscode-editor-font-family);
-      font-size: 0.9em;
     }
     .translation-content pre {
       background-color: var(--vscode-textCodeBlock-background);
@@ -150,20 +151,19 @@ export class TranslationPanel {
       color: var(--vscode-editor-foreground);
     }
     .translation-content ul, .translation-content ol {
-      padding-left: 24px;
-      margin: 8px 0;
+      padding-left: 12px;
+      margin: 2px 0;
     }
     .translation-content li {
-      margin: 4px 0;
+      margin: 0;
     }
     .translation-content li::marker {
       color: var(--vscode-descriptionForeground);
     }
     .translation-content h1, .translation-content h2, .translation-content h3 {
       color: var(--vscode-textLink-foreground);
-      margin: 20px 0 10px 0;
+      margin: 10px 0 10px 0;
       border-bottom: 1px solid var(--vscode-widget-border);
-      padding-bottom: 6px;
     }
     .translation-content p {
       margin: 8px 0;
