@@ -4,7 +4,7 @@
 
 > **直譯 ≠ 摘要**：輸出跟著程式碼結構走，不是總結功能。
 
-<video src="https://github.com/reidevbx/codexlate/raw/main/images/demo.mp4" controls width="100%"></video>
+https://github.com/user-attachments/assets/09398329-d723-4349-84a5-f106b56e5d38
 
 ## 功能特色
 
@@ -18,6 +18,9 @@
 
 1. 開啟 VS Code
 2. 按 `Cmd+Shift+X` (Mac) / `Ctrl+Shift+X` (Windows) 開啟擴充套件
+
+
+
 3. 搜尋 `CodeXlate`
 4. 點擊安裝
 
