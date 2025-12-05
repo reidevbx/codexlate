@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import * as crypto from 'crypto';
 import MarkdownIt from 'markdown-it';
 
 const md = new MarkdownIt({
@@ -6,6 +7,10 @@ const md = new MarkdownIt({
   breaks: true,
   linkify: true,
 });
+
+function generateNonce(): string {
+  return crypto.randomBytes(16).toString('base64');
+}
 
 export class TranslationPanel {
   public static currentPanel: TranslationPanel | undefined;
@@ -64,13 +69,14 @@ export class TranslationPanel {
 
   private _getHtmlContent(translation: string): string {
     const processedTranslation = this._processTranslation(translation);
+    const nonce = generateNonce();
 
     return `<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'nonce-${nonce}';">
   <title>CodeXlate 翻譯結果</title>
   <style>
     * {
@@ -206,26 +212,30 @@ export class TranslationPanel {
   <div class="container">
     <div class="header">
       <span class="header-title">白話直譯</span>
-      <button class="copy-btn" onclick="copyToClipboard()">複製</button>
+      <button class="copy-btn" id="copy-btn">複製</button>
     </div>
     <div class="translation-content" id="translation">${processedTranslation}</div>
     <div class="footer">
       按下 <kbd>Cmd+K T</kbd> / <kbd>Ctrl+K T</kbd> 重新翻譯
     </div>
   </div>
-  <script>
-    const rawText = ${JSON.stringify(translation)};
-    function copyToClipboard() {
-      navigator.clipboard.writeText(rawText).then(() => {
-        const btn = document.querySelector('.copy-btn');
-        btn.textContent = '已複製';
-        btn.classList.add('copied');
-        setTimeout(() => {
-          btn.textContent = '複製';
-          btn.classList.remove('copied');
-        }, 2000);
-      });
-    }
+  <script nonce="${nonce}">
+    (function() {
+      const rawText = ${JSON.stringify(translation)};
+      const btn = document.getElementById('copy-btn');
+      if (btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(rawText).then(function() {
+            btn.textContent = '已複製';
+            btn.classList.add('copied');
+            setTimeout(function() {
+              btn.textContent = '複製';
+              btn.classList.remove('copied');
+            }, 2000);
+          });
+        });
+      }
+    })();
   </script>
 </body>
 </html>`;

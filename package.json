@@ -1,8 +1,8 @@
 {
   "name": "codexlate",
   "displayName": "CodeXlate - 程式碼白話直譯器",
-  "description": "將程式碼逐段直譯為非工程師能看懂的中文句子",
-  "version": "0.1.7",
+  "description": "將程式碼逐段直譯為非工程師能看懂的中文句子 | Translate code into plain language for non-engineers | 将代码逐段直译为非工程师能看懂的中文句子 | コードを非エンジニアにも分かる言葉に翻訳",
+  "version": "0.1.8",
   "publisher": "reidevbx",
   "license": "MIT",
   "repository": {
