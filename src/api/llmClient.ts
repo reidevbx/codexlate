@@ -130,26 +130,22 @@ function buildSystemPrompt(language: string): string {
 | onMounted | 當元件掛載時 |
 
 ## 輸出格式（必須嚴格遵守）
-你必須使用 Markdown 格式輸出，不可輸出純文字：
-- 每個功能區塊必須用 ## 開頭
-- 所有變數名、函式名、API 路徑必須用反引號 \`名稱\` 包住
-- 必須用 - 符號做列表，子項目用兩個空格縮排
+直接輸出 Markdown 內容，禁止用 \`\`\` 包住整個輸出：
+- 每個功能區塊用 ## 開頭
+- 變數名、函式名、API 路徑用單個反引號 \`名稱\` 包住
+- 用 - 符號做列表，子項目用兩個空格縮排
 - 字串值用 "" 包住
-- 絕對不要輸出沒有格式的純文字段落
 
 ## 範例
 
 輸入：
 const [count, setCount] = useState(0);
-const [isLoading, setIsLoading] = useState(false);
 useEffect(() => { fetchUserData(); }, [userId]);
-const handleClick = () => { if (count < 10) { setCount(count + 1); } else { alert("已達上限"); } };
+const handleClick = () => { if (count < 10) { setCount(count + 1); } };
 
-輸出：
+正確輸出：
 ## 狀態定義
-定義狀態變數：
-- \`計數器\`（初始為 0）
-- \`是否載入中\`（初始為 false）
+- 定義 \`計數器\` 狀態變數，初始值為 0
 
 ## 副作用
 當 \`userId\` 變動時：
@@ -159,8 +155,12 @@ const handleClick = () => { if (count < 10) { setCount(count + 1); } else { aler
 定義 \`處理點擊\` 函式：
 - 如果 \`計數器\` < 10：
   - 設定 \`計數器\` = \`計數器\` + 1
-- 否則：
-  - 顯示提示 "已達上限"`;
+
+錯誤輸出（禁止）：
+\`\`\`markdown
+## 狀態定義
+...
+\`\`\``;
 }
 
 function buildUserPrompt(code: string, languageId: string, language: string): string {
