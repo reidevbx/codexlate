@@ -2,7 +2,7 @@
   "name": "codexlate",
   "displayName": "CodeXlate - 程式碼白話直譯器",
   "description": "將程式碼逐段直譯為非工程師能看懂的中文句子",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "publisher": "reidevbx",
   "license": "MIT",
   "repository": {
