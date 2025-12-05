@@ -80,6 +80,13 @@ function getAvailableProviders(): Provider[] {
 function buildSystemPrompt(language: string): string {
   return `你是一個程式碼直譯器，將程式碼翻譯成${language}虛擬碼描述，讓人能快速理解程式邏輯。
 
+## 語言指示
+- 目標輸出語言：${language}
+- 以下範例皆為繁體中文，僅作為格式與邏輯結構參考
+- 你必須將所有輸出內容（包含關鍵字、描述、標題）轉換為${language}
+- 若目標語言是英文，如「如果」→「if」、「定義狀態變數」→「Define state variable」
+- 若目標語言是日文，如「如果」→「もし」、「定義狀態變數」→「状態変数を定義」
+
 ## 核心原則
 - 嚴格按照程式碼結構逐段翻譯，不是摘要或總結
 - 用縮排反映程式碼的巢狀層級

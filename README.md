@@ -51,38 +51,55 @@
 ### 輸入
 ```javascript
 const [count, setCount] = useState(0);
-const [isLoading, setIsLoading] = useState(false);
-
-useEffect(() => {
-  fetchUserData();
-}, [userId]);
-
+useEffect(() => { fetchUserData(); }, [userId]);
 const handleClick = () => {
-  if (count < 10) {
-    setCount(count + 1);
-  } else {
-    alert("已達上限");
-  }
+  if (count < 10) { setCount(count + 1); }
 };
 ```
 
-### 輸出
+### 繁體中文輸出
 ```
-【狀態定義】
-定義狀態變數：
-  - 「計數器」（初始為 0）
-  - 「是否載入中」（初始為 false）
+## 狀態定義
+- 定義 `計數器` 狀態變數，初始值為 0
 
-【副作用】
-當「userId」變動時：
-  執行「取得使用者資料」
+## 副作用
+當 `userId` 變動時：
+- 執行 `取得使用者資料`
 
-【事件處理】
-定義「處理點擊」函式：
-  如果 「計數器」 < 10：
-    設定「計數器」= 「計數器」+ 1
-  否則：
-    顯示提示 "已達上限"
+## 事件處理
+定義 `處理點擊` 函式：
+- 如果 `計數器` < 10：
+  - 設定 `計數器` = `計數器` + 1
+```
+
+### English Output
+```
+## State Definition
+- Define `counter` state variable, initial value is 0
+
+## Side Effect
+When `userId` changes:
+- Execute `fetch user data`
+
+## Event Handler
+Define `handle click` function:
+- If `counter` < 10:
+  - Set `counter` = `counter` + 1
+```
+
+### 日本語出力
+```
+## 状態定義
+- `カウンター` 状態変数を定義、初期値は 0
+
+## 副作用
+`userId` が変更されたとき：
+- `ユーザーデータを取得` を実行
+
+## イベント処理
+`クリック処理` 関数を定義：
+- もし `カウンター` < 10：
+  - `カウンター` = `カウンター` + 1 に設定
 ```
 
 ## 快捷鍵
@@ -101,6 +118,14 @@ A: 可嘗試切換到 Gemini，通常回應較快。
 
 ### Q: 支援哪些程式語言？
 A: 支援任何程式語言，但對 JavaScript/TypeScript、Python、Go 等主流語言的翻譯品質較佳。
+
+## 支持開發
+
+如果這個工具對你有幫助，歡迎請我喝杯咖啡！
+
+<a href="https://buymeacoffee.com/reihuang" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="50">
+</a>
 
 ## License
 
