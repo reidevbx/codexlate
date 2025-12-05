@@ -4,7 +4,7 @@
 
 > **直譯 ≠ 摘要**：輸出跟著程式碼結構走，不是總結功能。
 
-![demo](https://raw.githubusercontent.com/reidevbx/codexlate/main/images/demo-1.png)
+<video src="https://github.com/reidevbx/codexlate/raw/main/images/demo.mp4" controls width="100%"></video>
 
 ## 功能特色
 
@@ -135,5 +135,5 @@ MIT License - 詳見 [LICENSE](LICENSE)
 
 歡迎提交 Issue 和 Pull Request！
 
-- [回報問題](https://github.com/reihuang/codexlate/issues)
-- [功能建議](https://github.com/reihuang/codexlate/issues/new)
+- [回報問題](https://github.com/reidevbx/codexlate/issues)
+- [功能建議](https://github.com/reidevbx/codexlate/issues/new)

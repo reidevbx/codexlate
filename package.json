@@ -7,11 +7,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/reihuang/codexlate"
+    "url": "https://github.com/reidevbx/codexlate"
   },
-  "homepage": "https://github.com/reihuang/codexlate#readme",
+  "homepage": "https://github.com/reidevbx/codexlate#readme",
   "bugs": {
-    "url": "https://github.com/reihuang/codexlate/issues"
+    "url": "https://github.com/reidevbx/codexlate/issues"
   },
   "icon": "images/icon.png",
   "engines": {
