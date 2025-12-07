@@ -26,7 +26,7 @@ https://github.com/user-attachments/assets/09398329-d723-4349-84a5-f106b56e5d38
 ## Usage
 
 1. Select code in the editor (or leave unselected to translate entire file)
-2. Press `Cmd+K T` (Mac) / `Ctrl+K T` (Windows)
+2. Press `Cmd+T X` (Mac) / `Ctrl+T X` (Windows)
 3. Translation appears in the right panel
 
 Or use Command Palette:
@@ -108,7 +108,7 @@ Define `handle click` function:
 
 | Action | Mac | Windows |
 |--------|-----|---------|
-| Translate Code | `Cmd+K T` | `Ctrl+K T` |
+| Translate Code | `Cmd+T X` | `Ctrl+T X` |
 
 ## FAQ
 

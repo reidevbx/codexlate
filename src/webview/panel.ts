@@ -216,7 +216,7 @@ export class TranslationPanel {
     </div>
     <div class="translation-content" id="translation">${processedTranslation}</div>
     <div class="footer">
-      按下 <kbd>Cmd+K T</kbd> / <kbd>Ctrl+K T</kbd> 重新翻譯
+      按下 <kbd>Cmd+T X</kbd> / <kbd>Ctrl+T X</kbd> 重新翻譯
     </div>
   </div>
   <script nonce="${nonce}">

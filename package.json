@@ -45,8 +45,8 @@
     "keybindings": [
       {
         "command": "codexlate.translate",
-        "key": "ctrl+k t",
-        "mac": "cmd+k t",
+        "key": "ctrl+t x",
+        "mac": "cmd+t x",
         "when": "editorTextFocus"
       }
     ],

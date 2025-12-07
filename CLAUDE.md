@@ -147,7 +147,7 @@ throw new Error('發生錯誤');
 1. `F5` 啟動 Extension Development Host
 2. 開啟任意程式碼檔案
 3. 選取程式碼（或不選取取得全檔）
-4. `Cmd+K T` / `Ctrl+K T` 觸發翻譯
+4. `Cmd+T X` / `Ctrl+T X` 觸發翻譯
 5. 驗證右側面板顯示直譯結果
 
 ### 測試檢查點
