@@ -1,78 +1,62 @@
-# CodeXlate - 程式碼白話直譯器
+# CodeXlate - Code-to-Plain-Language Translator
 
-將程式碼逐段直譯為非工程師能看懂的中文句子。
+[繁體中文](README.zh-TW.md) | English | [日本語](README.ja.md)
 
-> **直譯 ≠ 摘要**：輸出跟著程式碼結構走，不是總結功能。
+Translate code into plain language that non-engineers can understand, line by line.
+
+> **Translation ≠ Summary**: Output follows code structure, not just summarizing functionality.
 
 https://github.com/user-attachments/assets/09398329-d723-4349-84a5-f106b56e5d38
 
-## 功能特色
+## Features
 
-- **結構化直譯**：保留程式碼的巢狀層級，用縮排呈現邏輯結構
-- **智慧命名翻譯**：`isLoading` → 是否載入中、`handleSubmit` → 處理提交
-- **多框架支援**：React、Vue、Node.js 等常見框架術語自動翻譯
-- **多語言輸出**：繁體中文、简体中文、English、日本語
-- **多 AI 提供商**：OpenAI、Anthropic Claude、Google Gemini
+- **Structured Translation**: Preserves code's nested hierarchy with indentation
+- **Smart Naming Translation**: `isLoading` → "is loading", `handleSubmit` → "handle submit"
+- **Multi-Framework Support**: React, Vue, Node.js and other popular frameworks
+- **Multi-Language Output**: Traditional Chinese, Simplified Chinese, English, Japanese
+- **Multiple AI Providers**: OpenAI, Anthropic Claude, Google Gemini
 
-## 安裝
+## Installation
 
-1. 開啟 VS Code
-2. 按 `Cmd+Shift+X` (Mac) / `Ctrl+Shift+X` (Windows) 開啟擴充套件
+1. Open VS Code
+2. Press `Cmd+Shift+X` (Mac) / `Ctrl+Shift+X` (Windows) to open Extensions
+3. Search for `CodeXlate`
+4. Click Install
 
+## Usage
 
+1. Select code in the editor (or leave unselected to translate entire file)
+2. Press `Cmd+K T` (Mac) / `Ctrl+K T` (Windows)
+3. Translation appears in the right panel
 
-3. 搜尋 `CodeXlate`
-4. 點擊安裝
+Or use Command Palette:
+- `Cmd+Shift+P` → Type `CodeXlate: 翻譯程式碼`
 
-## 使用方式
+## Configuration
 
-1. 在編輯器中選取程式碼（或不選取則翻譯整個檔案）
-2. 按下快捷鍵 `Cmd+K T` (Mac) / `Ctrl+K T` (Windows)
-3. 右側面板顯示直譯結果
+Set up your API Key on first use:
 
-或使用命令面板：
-- `Cmd+Shift+P` → 輸入 `CodeXlate: 翻譯程式碼`
+1. Open Settings: `Cmd+,` (Mac) / `Ctrl+,` (Windows)
+2. Search for `CodeXlate`
+3. Select Provider and enter your API Key
 
-## 設定
+### Supported Providers
 
-首次使用需設定 API Key：
-
-1. 開啟設定：`Cmd+,` (Mac) / `Ctrl+,` (Windows)
-2. 搜尋 `CodeXlate`
-3. 選擇 Provider 並填入對應的 API Key
-
-### 支援的 Provider
-
-| Provider | 預設模型 | 取得 API Key |
-|----------|----------|--------------|
+| Provider | Default Model | Get API Key |
+|----------|---------------|-------------|
 | OpenAI | gpt-4o | [platform.openai.com](https://platform.openai.com/api-keys) |
 | Anthropic | claude-sonnet-4-20250514 | [console.anthropic.com](https://console.anthropic.com/) |
 | Gemini | gemini-2.0-flash | [aistudio.google.com](https://aistudio.google.com/apikey) |
 
-## 範例
+## Example
 
-### 輸入
+### Input
 ```javascript
 const [count, setCount] = useState(0);
 useEffect(() => { fetchUserData(); }, [userId]);
 const handleClick = () => {
   if (count < 10) { setCount(count + 1); }
 };
-```
-
-### 繁體中文輸出
-```
-## 狀態定義
-- 定義 `計數器` 狀態變數，初始值為 0
-
-## 副作用
-當 `userId` 變動時：
-- 執行 `取得使用者資料`
-
-## 事件處理
-定義 `處理點擊` 函式：
-- 如果 `計數器` < 10：
-  - 設定 `計數器` = `計數器` + 1
 ```
 
 ### English Output
@@ -90,6 +74,21 @@ Define `handle click` function:
   - Set `counter` = `counter` + 1
 ```
 
+### 繁體中文輸出
+```
+## 狀態定義
+- 定義 `計數器` 狀態變數，初始值為 0
+
+## 副作用
+當 `userId` 變動時：
+- 執行 `取得使用者資料`
+
+## 事件處理
+定義 `處理點擊` 函式：
+- 如果 `計數器` < 10：
+  - 設定 `計數器` = `計數器` + 1
+```
+
 ### 日本語出力
 ```
 ## 状態定義
@@ -105,26 +104,26 @@ Define `handle click` function:
   - `カウンター` = `カウンター` + 1 に設定
 ```
 
-## 快捷鍵
+## Keyboard Shortcuts
 
-| 功能 | Mac | Windows |
-|------|-----|---------|
-| 翻譯程式碼 | `Cmd+K T` | `Ctrl+K T` |
+| Action | Mac | Windows |
+|--------|-----|---------|
+| Translate Code | `Cmd+K T` | `Ctrl+K T` |
 
-## 常見問題
+## FAQ
 
-### Q: 出現「請先設定 API Key」錯誤？
-A: 前往設定頁面，填入至少一個 Provider 的 API Key。
+### Q: Getting "Please set API Key first" error?
+A: Go to Settings and enter an API Key for at least one Provider.
 
-### Q: 翻譯結果太慢？
-A: 可嘗試切換到 Gemini，通常回應較快。
+### Q: Translation is too slow?
+A: Try switching to Gemini, which typically responds faster.
 
-### Q: 支援哪些程式語言？
-A: 支援任何程式語言，但對 JavaScript/TypeScript、Python、Go 等主流語言的翻譯品質較佳。
+### Q: Which programming languages are supported?
+A: All programming languages are supported, but translation quality is best for JavaScript/TypeScript, Python, Go and other mainstream languages.
 
-## 支持開發
+## Support Development
 
-如果這個工具對你有幫助，歡迎請我喝杯咖啡！
+If you find this tool helpful, consider buying me a coffee!
 
 <a href="https://buymeacoffee.com/reihuang" target="_blank">
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="50">
@@ -132,11 +131,11 @@ A: 支援任何程式語言，但對 JavaScript/TypeScript、Python、Go 等主�
 
 ## License
 
-MIT License - 詳見 [LICENSE](LICENSE)
+MIT License - See [LICENSE](LICENSE) for details.
 
-## 貢獻
+## Contributing
 
-歡迎提交 Issue 和 Pull Request！
+Issues and Pull Requests are welcome!
 
-- [回報問題](https://github.com/reidevbx/codexlate/issues)
-- [功能建議](https://github.com/reidevbx/codexlate/issues/new)
+- [Report Issues](https://github.com/reidevbx/codexlate/issues)
+- [Feature Requests](https://github.com/reidevbx/codexlate/issues/new)
