@@ -2,7 +2,7 @@
   "name": "codexlate",
   "displayName": "CodeXlate - Code-to-Plain-Language Translator",
   "description": "Translate code into plain language for non-engineers | 將程式碼逐段直譯為非工程師能看懂的句子 | 将代码逐段直译为非工程师能看懂的句子 | コードを非エンジニアにも分かる言葉に翻訳",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "publisher": "reidevbx",
   "license": "MIT",
   "repository": {
