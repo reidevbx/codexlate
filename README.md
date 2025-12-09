@@ -26,7 +26,7 @@ https://github.com/user-attachments/assets/09398329-d723-4349-84a5-f106b56e5d38
 ## Usage
 
 1. Select code in the editor (or leave unselected to translate entire file)
-2. Press `Cmd+T X` (Mac) / `Ctrl+T X` (Windows)
+2. Press `Cmd+K X` (Mac) / `Ctrl+K X` (Windows)
 3. Translation appears in the right panel
 
 Or use Command Palette:
@@ -108,7 +108,9 @@ Define `handle click` function:
 
 | Action | Mac | Windows |
 |--------|-----|---------|
-| Translate Code | `Cmd+T X` | `Ctrl+T X` |
+| Translate Code | `Cmd+K X` | `Ctrl+K X` |
+
+> Note: `Cmd+T X` / `Ctrl+T X` also works, but may conflict with VS Code's "Go to Symbol" shortcut.
 
 ## FAQ
 

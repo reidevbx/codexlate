@@ -26,7 +26,7 @@ https://github.com/user-attachments/assets/09398329-d723-4349-84a5-f106b56e5d38
 ## 使い方
 
 1. エディタでコードを選択（選択しない場合はファイル全体を翻訳）
-2. `Cmd+T X` (Mac) / `Ctrl+T X` (Windows) を押す
+2. `Cmd+K X` (Mac) / `Ctrl+K X` (Windows) を押す
 3. 右側のパネルに翻訳結果が表示される
 
 またはコマンドパレットを使用：
@@ -108,7 +108,9 @@ Define `handle click` function:
 
 | 機能 | Mac | Windows |
 |------|-----|---------|
-| コードを翻訳 | `Cmd+T X` | `Ctrl+T X` |
+| コードを翻訳 | `Cmd+K X` | `Ctrl+K X` |
+
+> 注：`Cmd+T X` / `Ctrl+T X` も使用できますが、VS Code の「シンボルへ移動」ショートカットと競合する可能性があります。
 
 ## よくある質問
 

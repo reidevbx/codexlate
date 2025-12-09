@@ -26,7 +26,7 @@ https://github.com/user-attachments/assets/09398329-d723-4349-84a5-f106b56e5d38
 ## 使用方式
 
 1. 在編輯器中選取程式碼（或不選取則翻譯整個檔案）
-2. 按下快捷鍵 `Cmd+T X` (Mac) / `Ctrl+T X` (Windows)
+2. 按下快捷鍵 `Cmd+K X` (Mac) / `Ctrl+K X` (Windows)
 3. 右側面板顯示直譯結果
 
 或使用命令面板：
@@ -108,7 +108,9 @@ Define `handle click` function:
 
 | 功能 | Mac | Windows |
 |------|-----|---------|
-| 翻譯程式碼 | `Cmd+T X` | `Ctrl+T X` |
+| 翻譯程式碼 | `Cmd+K X` | `Ctrl+K X` |
+
+> 備註：`Cmd+T X` / `Ctrl+T X` 也可使用，但可能與 VS Code 的「前往符號」快捷鍵衝突。
 
 ## 常見問題
 
