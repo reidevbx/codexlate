@@ -2,7 +2,7 @@
   "name": "codexlate",
   "displayName": "CodeXlate - Code-to-Plain-Language Translator",
   "description": "Translate code into plain language for non-engineers | 將程式碼逐段直譯為非工程師能看懂的句子 | 将代码逐段直译为非工程师能看懂的句子 | コードを非エンジニアにも分かる言葉に翻訳",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "publisher": "reidevbx",
   "license": "MIT",
   "repository": {
@@ -103,7 +103,7 @@
           },
           "codexlate.openaiModel": {
             "type": "string",
-            "default": "gpt-4o",
+            "default": "gpt-5.4-mini",
             "description": "模型",
             "order": 1
           }
@@ -121,7 +121,7 @@
           },
           "codexlate.anthropicModel": {
             "type": "string",
-            "default": "claude-sonnet-4-20250514",
+            "default": "claude-sonnet-4-6",
             "description": "模型",
             "order": 1
           }
@@ -139,7 +139,7 @@
           },
           "codexlate.geminiModel": {
             "type": "string",
-            "default": "gemini-2.0-flash",
+            "default": "gemini-2.5-flash",
             "description": "模型",
             "order": 1
           }

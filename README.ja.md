@@ -10,6 +10,7 @@ https://github.com/user-attachments/assets/09398329-d723-4349-84a5-f106b56e5d38
 
 ## 特徴
 
+- **平易な概要**：冒頭に 1〜2 文でコードの大まかな役割を分かりやすく提示
 - **構造化翻訳**：コードのネスト階層をインデントで保持
 - **スマートな命名翻訳**：`isLoading` → 読み込み中かどうか、`handleSubmit` → 送信処理
 - **マルチフレームワーク対応**：React、Vue、Node.js などの一般的なフレームワーク用語を自動翻訳
@@ -44,9 +45,9 @@ https://github.com/user-attachments/assets/09398329-d723-4349-84a5-f106b56e5d38
 
 | プロバイダー | デフォルトモデル | API Key 取得 |
 |-------------|-----------------|--------------|
-| OpenAI | gpt-4o | [platform.openai.com](https://platform.openai.com/api-keys) |
-| Anthropic | claude-sonnet-4-20250514 | [console.anthropic.com](https://console.anthropic.com/) |
-| Gemini | gemini-2.0-flash | [aistudio.google.com](https://aistudio.google.com/apikey) |
+| OpenAI | gpt-5.4-mini | [platform.openai.com](https://platform.openai.com/api-keys) |
+| Anthropic | claude-sonnet-4-6 | [console.anthropic.com](https://console.anthropic.com/) |
+| Gemini | gemini-2.5-flash | [aistudio.google.com](https://aistudio.google.com/apikey) |
 
 ## 例
 
@@ -61,6 +62,9 @@ const handleClick = () => {
 
 ### 日本語出力
 ```
+## 概要
+このコードはカウンターを記録し、ユーザーがクリックするたびに数字を 1 ずつ増やします（最大 10 まで）。また、ユーザーデータが変わったときに、そのデータを再取得します。
+
 ## 状態定義
 - `カウンター` 状態変数を定義、初期値は 0
 
@@ -76,6 +80,9 @@ const handleClick = () => {
 
 ### English Output
 ```
+## Summary
+This code tracks a counter and increments it when the user clicks (up to 10); it also refetches user data whenever the user ID changes.
+
 ## State Definition
 - Define `counter` state variable, initial value is 0
 
@@ -91,6 +98,9 @@ Define `handle click` function:
 
 ### 繁體中文輸出
 ```
+## 概要
+這段程式負責記錄一個計數，並在使用者點擊時把數字加一（最多加到 10）；另外在使用者資料變動時，重新抓取該使用者的資料。
+
 ## 狀態定義
 - 定義 `計數器` 狀態變數，初始值為 0
 

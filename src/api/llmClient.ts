@@ -36,17 +36,17 @@ function getConfig(): Config {
   switch (provider) {
     case 'openai':
       apiKey = config.get<string>('openaiApiKey', '');
-      model = config.get<string>('openaiModel', 'gpt-4o');
+      model = config.get<string>('openaiModel', 'gpt-5.4-mini');
       endpoint = DEFAULT_ENDPOINTS.openai;
       break;
     case 'anthropic':
       apiKey = config.get<string>('anthropicApiKey', '');
-      model = config.get<string>('anthropicModel', 'claude-sonnet-4-20250514');
+      model = config.get<string>('anthropicModel', 'claude-sonnet-4-6');
       endpoint = DEFAULT_ENDPOINTS.anthropic;
       break;
     case 'gemini':
       apiKey = config.get<string>('geminiApiKey', '');
-      model = config.get<string>('geminiModel', 'gemini-2.0-flash');
+      model = config.get<string>('geminiModel', 'gemini-2.5-flash');
       endpoint = DEFAULT_ENDPOINTS.gemini;
       break;
   }
@@ -88,9 +88,17 @@ function buildSystemPrompt(language: string): string {
 - 若目標語言是日文，如「如果」→「もし」、「定義狀態變數」→「状態変数を定義」
 
 ## 核心原則
-- 嚴格按照程式碼結構逐段翻譯，不是摘要或總結
+- 輸出必須以「## 概要」作為第一段，後面才接逐段直譯
+- 概要以外的區塊，嚴格按照程式碼結構逐段翻譯，不是摘要或總結
 - 用縮排反映程式碼的巢狀層級
-- 禁止說「這段程式碼的功能是...」或「這是一個用來...的程式」
+- 除了「## 概要」區塊外，禁止說「這段程式碼的功能是...」或「這是一個用來...的程式」
+
+## 概要區塊規則（第一段，必須輸出）
+- 以 ## 概要 作為標題
+- 用 1~2 句非常白話的中文，說明這份程式碼大致在做什麼
+- 讀者是完全不懂程式的人，避免技術術語（如：狀態、元件、API、函式…）
+- 若無法從程式片段判斷整體用途，就描述它負責的事情即可，不要亂猜
+- 概要之後才開始逐段直譯
 
 ## 命名翻譯規則
 | 英文模式 | 中文翻譯 |
@@ -151,6 +159,9 @@ useEffect(() => { fetchUserData(); }, [userId]);
 const handleClick = () => { if (count < 10) { setCount(count + 1); } };
 
 正確輸出：
+## 概要
+這段程式負責記錄一個計數，並在使用者點擊時把數字加一（最多加到 10）；另外在使用者資料變動時，重新抓取該使用者的資料。
+
 ## 狀態定義
 - 定義 \`計數器\` 狀態變數，初始值為 0
 

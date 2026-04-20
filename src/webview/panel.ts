@@ -174,6 +174,26 @@ export class TranslationPanel {
     .translation-content p {
       margin: 8px 0;
     }
+    .summary-block {
+      background-color: var(--vscode-textBlockQuote-background);
+      border-left: 3px solid var(--vscode-textLink-foreground);
+      padding: 12px 16px;
+      margin: 4px 0 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .translation-content .summary-block h2 {
+      margin: 0 0 6px 0;
+      border-bottom: none;
+      font-size: 0.85em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--vscode-descriptionForeground);
+    }
+    .summary-block p {
+      margin: 0;
+      font-size: 1.05em;
+      line-height: 1.7;
+    }
     /* 區塊標題【】*/
     .block-title {
       color: var(--vscode-textLink-foreground);
@@ -244,6 +264,11 @@ export class TranslationPanel {
   private _processTranslation(text: string): string {
     // 用 markdown-it 渲染
     let html = md.render(text);
+
+    html = html.replace(
+      /(<h2>[\s\S]*?<\/h2>[\s\S]*?)(?=<h2|$)/,
+      '<div class="summary-block">$1</div>'
+    );
 
     // 額外上色處理（在 HTML 渲染後）
     // 區塊標題【...】→ 藍色粗體
