@@ -15,7 +15,7 @@ https://github.com/user-attachments/assets/09398329-d723-4349-84a5-f106b56e5d38
 - **スマートな命名翻訳**：`isLoading` → 読み込み中かどうか、`handleSubmit` → 送信処理
 - **マルチフレームワーク対応**：React、Vue、Node.js などの一般的なフレームワーク用語を自動翻訳
 - **多言語出力**：繁體中文、简体中文、English、日本語
-- **複数AIプロバイダー**：OpenAI、Anthropic Claude、Google Gemini
+- **拡張機能は API Key を保存しません**：VS Code に登録済みのモデル（Copilot、Anthropic、OpenAI、Gemini、Ollama など）をそのまま利用。キーは VS Code の安全なストレージに保管されます
 
 ## インストール
 
@@ -35,19 +35,17 @@ https://github.com/user-attachments/assets/09398329-d723-4349-84a5-f106b56e5d38
 
 ## 設定
 
-初回使用時に API Key を設定：
+CodeXlate は API Key を保存も読み取りもしません。翻訳時は VS Code 内蔵の Language Model API を通じてモデルを呼び出すため、キーは VS Code で一元管理され、他の拡張機能からは読めません。
 
-1. 設定を開く：`Cmd+,` (Mac) / `Ctrl+,` (Windows)
-2. `CodeXlate` を検索
-3. Provider を選択し、対応する API Key を入力
+**必要条件**：VS Code 1.90 以上。モデル管理画面は GitHub Copilot Chat が提供するため、先に GitHub Copilot にサインインしてください（Free プランで可）。
 
-### 対応プロバイダー
+1. コマンドパレット（`Cmd+Shift+P` / `Ctrl+Shift+P`）→ `Chat: Manage Language Models`
+2. プロバイダー（Anthropic、OpenAI、Gemini、Ollama など）を選び、API Key を入力。Copilot のモデルは追加のキー不要です。
+3. `CodeXlate: 選擇模型` を実行し、翻訳に使うモデルを選択。この手順を省略した場合、初回翻訳時に自動で選択画面が表示されます。
 
-| プロバイダー | デフォルトモデル | API Key 取得 |
-|-------------|-----------------|--------------|
-| OpenAI | gpt-5.4-mini | [platform.openai.com](https://platform.openai.com/api-keys) |
-| Anthropic | claude-sonnet-4-6 | [console.anthropic.com](https://console.anthropic.com/) |
-| Gemini | gemini-2.5-flash | [aistudio.google.com](https://aistudio.google.com/apikey) |
+> **初回実行時**：VS Code が「CodeXlate に選択したモデルの使用を許可するか」を確認します。これは正常な一度きりの確認です。「許可」を選んでください。
+
+**0.3.x からのアップグレード**：旧設定 `codexlate.*ApiKey` と `codexlate.provider` は読み取られなくなりました。起動時に CodeXlate が `settings.json` からの削除を提案します。
 
 ## 例
 
@@ -124,11 +122,14 @@ Define `handle click` function:
 
 ## よくある質問
 
-### Q:「API Key を設定してください」エラーが表示される？
-A: 設定ページで、少なくとも1つの Provider の API Key を入力してください。
+### Q:「利用可能な言語モデルが見つかりません」エラーが表示される？
+A: `Chat: Manage Language Models` を開いてプロバイダーと API Key を追加し、`CodeXlate: 選擇模型` を実行してください。GitHub Copilot にサインイン済みか確認してください。
+
+### Q: モデルを切り替えるには？
+A: コマンドパレットで `CodeXlate: 選擇模型` を実行してください。選択は記憶されます。
 
 ### Q: 翻訳が遅い？
-A: Gemini に切り替えてみてください。通常、応答が速いです。
+A: `CodeXlate: 選擇模型` で Gemini Flash や GPT mini など軽量なモデルを選んでください。
 
 ### Q: どのプログラミング言語に対応していますか？
 A: すべてのプログラミング言語に対応していますが、JavaScript/TypeScript、Python、Go などの主流言語で翻訳品質が最も優れています。

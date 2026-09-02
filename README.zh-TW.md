@@ -15,7 +15,7 @@ https://github.com/user-attachments/assets/09398329-d723-4349-84a5-f106b56e5d38
 - **智慧命名翻譯**：`isLoading` → 是否載入中、`handleSubmit` → 處理提交
 - **多框架支援**：React、Vue、Node.js 等常見框架術語自動翻譯
 - **多語言輸出**：繁體中文、简体中文、English、日本語
-- **多 AI 提供商**：OpenAI、Anthropic Claude、Google Gemini
+- **套件不保存 API Key**：直接使用你在 VS Code 登記的模型（Copilot、Anthropic、OpenAI、Gemini、Ollama…），金鑰留在 VS Code 的安全儲存區
 
 ## 安裝
 
@@ -35,19 +35,17 @@ https://github.com/user-attachments/assets/09398329-d723-4349-84a5-f106b56e5d38
 
 ## 設定
 
-首次使用需設定 API Key：
+CodeXlate 不保存、也不讀取任何 API Key。翻譯時透過 VS Code 內建的 Language Model API 呼叫模型，金鑰集中由 VS Code 管理，其他擴充套件讀不到。
 
-1. 開啟設定：`Cmd+,` (Mac) / `Ctrl+,` (Windows)
-2. 搜尋 `CodeXlate`
-3. 選擇 Provider 並填入對應的 API Key
+**需求**：VS Code 1.90 以上。模型管理畫面由 GitHub Copilot Chat 提供，請先登入 GitHub Copilot（Free 方案即可）。
 
-### 支援的 Provider
+1. 命令面板（`Cmd+Shift+P` / `Ctrl+Shift+P`）→ `Chat: Manage Language Models`
+2. 選擇提供商（Anthropic、OpenAI、Gemini、Ollama…）並填入 API Key。Copilot 模型不用另外填 Key。
+3. 執行 `CodeXlate: 選擇模型`，挑選翻譯要用的模型。略過此步驟的話，第一次翻譯時會自動跳出選單。
 
-| Provider | 預設模型 | 取得 API Key |
-|----------|----------|--------------|
-| OpenAI | gpt-5.4-mini | [platform.openai.com](https://platform.openai.com/api-keys) |
-| Anthropic | claude-sonnet-4-6 | [console.anthropic.com](https://console.anthropic.com/) |
-| Gemini | gemini-2.5-flash | [aistudio.google.com](https://aistudio.google.com/apikey) |
+> **第一次執行**：VS Code 會詢問是否允許 CodeXlate 使用所選模型。這是正常的一次性授權提示，請選「允許」。
+
+**從 0.3.x 升級**：舊的 `codexlate.*ApiKey` 與 `codexlate.provider` 設定不再讀取。啟動時 CodeXlate 會詢問是否從 `settings.json` 移除這些設定。
 
 ## 範例
 
@@ -124,11 +122,14 @@ Define `handle click` function:
 
 ## 常見問題
 
-### Q: 出現「請先設定 API Key」錯誤？
-A: 前往設定頁面，填入至少一個 Provider 的 API Key。
+### Q: 出現「找不到可用的語言模型」錯誤？
+A: 開啟 `Chat: Manage Language Models`，新增提供商並填入 API Key，再執行 `CodeXlate: 選擇模型`。請確認已登入 GitHub Copilot。
+
+### Q: 怎麼換模型？
+A: 在命令面板執行 `CodeXlate: 選擇模型`，選擇會被記住。
 
 ### Q: 翻譯結果太慢？
-A: 可嘗試切換到 Gemini，通常回應較快。
+A: 在 `CodeXlate: 選擇模型` 改選較輕量的模型，例如 Gemini Flash 或 GPT mini。
 
 ### Q: 支援哪些程式語言？
 A: 支援任何程式語言，但對 JavaScript/TypeScript、Python、Go 等主流語言的翻譯品質較佳。

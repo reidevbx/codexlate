@@ -15,7 +15,7 @@ https://github.com/user-attachments/assets/09398329-d723-4349-84a5-f106b56e5d38
 - **Smart Naming Translation**: `isLoading` → "is loading", `handleSubmit` → "handle submit"
 - **Multi-Framework Support**: React, Vue, Node.js and other popular frameworks
 - **Multi-Language Output**: Traditional Chinese, Simplified Chinese, English, Japanese
-- **Multiple AI Providers**: OpenAI, Anthropic Claude, Google Gemini
+- **No API Key Stored by the Extension**: Uses the models you register in VS Code (Copilot, Anthropic, OpenAI, Gemini, Ollama, ...). Your keys stay in VS Code's secure storage
 
 ## Installation
 
@@ -35,19 +35,17 @@ Or use Command Palette:
 
 ## Configuration
 
-Set up your API Key on first use:
+CodeXlate does not store or read any API key. It calls models through VS Code's built-in Language Model API, so you manage keys in one place and other extensions cannot read them.
 
-1. Open Settings: `Cmd+,` (Mac) / `Ctrl+,` (Windows)
-2. Search for `CodeXlate`
-3. Select Provider and enter your API Key
+**Requirements**: VS Code 1.90+. The model management UI is provided by GitHub Copilot Chat, so sign in to GitHub Copilot first (the Free plan is enough).
 
-### Supported Providers
+1. Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`) → `Chat: Manage Language Models`
+2. Pick a provider (Anthropic, OpenAI, Gemini, Ollama, ...) and enter your API key. Copilot models are available without any extra key.
+3. Run `CodeXlate: 選擇模型` and pick the model to translate with. If you skip this step, the picker appears on your first translation.
 
-| Provider | Default Model | Get API Key |
-|----------|---------------|-------------|
-| OpenAI | gpt-5.4-mini | [platform.openai.com](https://platform.openai.com/api-keys) |
-| Anthropic | claude-sonnet-4-6 | [console.anthropic.com](https://console.anthropic.com/) |
-| Gemini | gemini-2.5-flash | [aistudio.google.com](https://aistudio.google.com/apikey) |
+> **First run**: VS Code asks whether to allow CodeXlate to use the selected model. This is a normal one-time prompt; choose **Allow**.
+
+**Upgrading from 0.3.x**: the old `codexlate.*ApiKey` and `codexlate.provider` settings are no longer read. On startup CodeXlate offers to delete them from `settings.json`.
 
 ## Example
 
@@ -124,11 +122,14 @@ Define `handle click` function:
 
 ## FAQ
 
-### Q: Getting "Please set API Key first" error?
-A: Go to Settings and enter an API Key for at least one Provider.
+### Q: Getting "No language model available" error?
+A: Open `Chat: Manage Language Models`, add a provider and your API key, then run `CodeXlate: 選擇模型`. Make sure you are signed in to GitHub Copilot.
+
+### Q: How do I switch models?
+A: Run `CodeXlate: 選擇模型` from the Command Palette. The choice is remembered.
 
 ### Q: Translation is too slow?
-A: Try switching to Gemini, which typically responds faster.
+A: Pick a lighter model (for example Gemini Flash or GPT mini) in `CodeXlate: 選擇模型`.
 
 ### Q: Which programming languages are supported?
 A: All programming languages are supported, but translation quality is best for JavaScript/TypeScript, Python, Go and other mainstream languages.
